@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../assets/styles/contactpage.css';
 import Footer from '../components/Footer';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar';
 
 const socials = [
   { key: 'whatsapp', label: 'WhatsApp', url: 'https://wa.me/+2348139386017', icon: 'fab fa-whatsapp' },

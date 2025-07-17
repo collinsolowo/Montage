@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Navbar from '../components/navbar'
+import Navbar from '../components/Navbar'
 import '../assets/styles/homepage.css'
 import ProfilePic from '../../public/assets/images/profilepic.jpg'
 import Footer from '../components/Footer';
