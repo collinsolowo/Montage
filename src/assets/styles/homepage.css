@@ -1,0 +1,812 @@
+/* OVERLAY SECTION */
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    background-image: url(/public/assets/images/BG1.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(65, 45, 14, 0.59);
+    /* Dark brown tint */
+    z-index: 1;
+}
+
+.overlay-content {
+    z-index: 9;
+    margin-top: 40px;
+}
+
+.overlay-content h1 {
+    font-family: 'Unbounded', sans-serif;
+    color: white;
+    font-size: 45px;
+    font-weight: 800;
+    text-wrap: wrap;
+}
+
+.overlay-content p {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.book-btn {
+    background-color: rgb(65, 45, 14);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all ease-in-out 500ms;
+    width: 100px;
+    height: auto;
+    padding: 15px 20px;
+    border-radius: 10px
+}
+
+.book-btn:hover {
+    background-color: white;
+    color: rgb(65, 45, 14);
+    border: 1px solid rgb(65, 45, 14);
+    transition: all ease-in-out 500ms;
+}
+
+.rooms-btn {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all ease-in-out 500ms;
+    width: auto;
+    height: auto;
+    padding: 15px 20px;
+    border-radius: 10px
+}
+
+.rooms-btn:hover {
+    background-color: rgb(65, 45, 14);
+}
+
+.btn-box {
+    margin-top: 20px;
+    width: auto;
+    gap: 20px;
+}
+
+@media screen and (max-width: 570px) {
+    .overlay-content {
+        width: 85%;
+    }
+}
+
+/* FEATURED SERVICES SECTION */
+
+.features-section {
+    padding: 4rem 2rem;
+    background-color: #fff;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    padding: 1rem;
+}
+
+.feature-icon {
+    font-size: 40px;
+    color: rgb(65, 45, 14);
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.feature-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .features-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-item {
+        max-width: 400px;
+        margin-bottom: 2rem;
+    }
+}
+
+/* About Us Section */
+:root {
+    --clr-dark: #664a21;
+    --clr-accent: #d4a76a;
+    --clr-bg-light: #f4ebe1;
+    --transition: 0.6s ease-out;
+}
+
+.about-us {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--clr-dark) 0%, #5b3e15 100%);
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 2rem;
+}
+
+.about-us__bg-deco {
+    /* Abstract rotated rectangle behind content */
+    position: absolute;
+    top: 10%;
+    left: -20%;
+    width: 150%;
+    height: 80%;
+    background: var(--clr-accent);
+    transform: rotate(-12deg);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.about-us__text,
+.about-us__image {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.about-us__text.is-visible,
+.about-us__image.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-us__text h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-us__text .highlight {
+    color: var(--clr-accent);
+    position: relative;
+}
+
+.about-us__text .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.3em;
+    background: var(--clr-accent);
+    opacity: 0.4;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.about-us__text .highlight:hover::after {
+    opacity: 0.7;
+}
+
+.about-us__text p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.about-us__image {
+    display: flex;
+    justify-content: center;
+}
+
+.about-us__image img {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-us__image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .about-us {
+        padding: 3rem 1rem;
+    }
+
+    .about-us__text h2 {
+        font-size: 1.75rem;
+    }
+
+    .about-us__text p {
+        font-size: 1rem;
+    }
+}
+
+/* Rooms Sections */
+:root {
+    --clr-dark: #664a21;
+    --clr-accent: #d4a76a;
+    --clr-bg-light: #f4ebe1;
+    --text-light: #fff;
+    --text-dark: #333;
+    --transition: 0.6s ease-out;
+}
+
+.rooms-section {
+    background: linear-gradient(135deg, var(--clr-dark) 0%, #5b3e15 100%);
+    padding: 4rem 2rem;
+    color: var(--text-light);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Unbounded', sans-serif;
+}
+
+.rooms-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.rooms-title::after {
+    content: '';
+    height: 4px;
+    width: 60px;
+    background: var(--clr-accent);
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.nav {
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 2;
+}
+
+.nav:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.slide-window {
+    width: 90%;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.room-card {
+    flex: 0 0 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background: var(--clr-bg-light);
+    border-radius: 12px;
+    margin: 0 0.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.room-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
+}
+
+.image-wrap {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.image-wrap img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.image-wrap img:hover {
+    transform: scale(1.05);
+}
+
+.room-info {
+    padding: 1rem;
+    color: var(--text-dark);
+}
+
+.room-info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+}
+
+.room-info p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.see-more-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 2rem;
+    background: var(--clr-accent);
+    color: var(--dark);
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.see-more-btn:hover {
+    background: #b58950;
+    transform: translateY(-2px);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .rooms-title {
+        font-size: 1.75rem;
+    }
+
+    .nav {
+        font-size: 1.25rem;
+        padding: 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .rooms-section {
+        padding: 3rem 1rem;
+    }
+
+    .see-more-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Testimonial Section */
+
+.carousel-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: left;
+    padding: 1rem;
+    background: #f9f6f1;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-title {
+    font-family: 'Unbounded', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: rgb(65, 45, 14);
+}
+
+.testimonial-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonial-content {
+    flex: 1;
+}
+
+.name-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    font-weight: bold;
+    color: #222;
+}
+
+.stars {
+    color: #f5a623;
+    font-size: 1.1rem;
+}
+
+.review-text {
+    margin-top: 0.5rem;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .testimonial-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .name-rating {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+}
+
+
+/* Get-In-Touch-Section */
+:root {
+    --dark-brown: rgb(65, 45, 14);
+    --cream-bg: #f4ebe1;
+    /* rhymes with dark brown */
+    --card-bg: #ffffff;
+    --accent: #d4a76a;
+    /* a warm accent tone */
+    --text-primary: #333;
+    --text-secondary: #666;
+}
+
+.touch-section {
+    background-color: var(--cream-bg);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--text-primary);
+    font-family: 'Unbounded', sans-serif;
+}
+
+.touch-header {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.accent-line {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin: 0 auto 0.5rem;
+    border-radius: 2px;
+}
+
+.touch-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark-brown);
+}
+
+.touch-header p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.touch-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.touch-card {
+    background: var(--card-bg);
+    width: 120px;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.touch-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(65, 45, 14, 0.12);
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--cream-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--dark-brown);
+    margin-bottom: 0.75rem;
+}
+
+.touch-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark-brown);
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 480px) {
+    .touch-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center !important;
+    }
+
+    .touch-card {
+        width: 75vw;
+    }
+}
+
+/* Remove the margins on each card… */
+.room-card {
+    /* replace this */
+    /* margin: 0 0.5rem; */
+    /* …with padding only, so no overflow leakage */
+    margin: 0;
+    padding: 1rem;
+}
+
+/* And add a gap between flex items instead */
+.slides {
+    display: flex;
+    gap: 1rem;
+    /* NEW: creates the same spacing, but hidden when out of view */
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* —————————————————————————————— */
+/* ★ World‑Class Rooms Carousel ★ */
+/* —————————————————————————————— */
+
+.rooms-deco {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--clr-accent);
+    border-radius: 50% 50% 20% 20%;
+    top: -50px;
+    right: -80px;
+    opacity: 0.1;
+    transform: rotate(25deg);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Slide Window & Perspective */
+.carousel {
+    position: relative;
+    z-index: 1;
+}
+
+.slide-window {
+    overflow: hidden;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 0;
+}
+
+/* Slides Container */
+.slides {
+    display: flex;
+    /* gap: 1.5rem; */
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Card Styles with 3D tilt */
+.room-card {
+    flex: 0 0 100%;
+    background: var(--clr-bg-light);
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.room-card:hover {
+    transform: rotateY(8deg) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Image Parallax */
+.image-wrap {
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+}
+
+.image-wrap img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.room-card:hover .image-wrap img {
+    transform: scale(1.1) translateZ(20px);
+}
+
+/* Info Panel */
+.room-info {
+    padding: 1.2rem;
+}
+
+.room-info h3 {
+    margin: 0 0 0.5rem;
+    font-family: 'Georgia', serif;
+    color: var(--clr-dark);
+    font-size: 1.4rem;
+}
+
+.room-info p {
+    margin: 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Navigation Arrows—bigger hit‑area */
+.nav {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    color: var(--text-light);
+    font-size: 1.8rem;
+    padding: 0.8rem;
+    margin: 0 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.nav:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Pagination Dots */
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.dot.active {
+    background: var(--clr-accent);
+    transform: scale(1.2);
+}
+
+/* Ensure button layers above deco */
+.see-more-btn {
+    position: relative;
+    z-index: 2;
+}
+
+/* ——————————————————————————————— */
+/* Rooms Carousel: show one full card */
+/* ——————————————————————————————— */
+
+.slide-window {
+    /* make viewport exactly full‑width, hide overflow */
+    width: 100%;
+    max-width: 900px;
+    /* or whatever your intended max width is */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    /* remove the gap so cards butt up against each other off‑screen */
+    gap: 0;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.room-card {
+    /* each card takes 100% of the slide-window width */
+    flex: 0 0 100%;
+    margin: 0;
+    /* remove any leftover margins */
+}
+
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+    .rooms-title {
+        font-size: 1.8rem;
+    }
+
+    .nav {
+        font-size: 1.5rem;
+        padding: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .room-card {
+        border-radius: 12px;
+    }
+
+    .see-more-btn {
+        width: 80%;
+        align-self: center !important;
+        text-align: center;
+    }
+}

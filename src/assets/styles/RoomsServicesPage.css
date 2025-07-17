@@ -1,0 +1,126 @@
+:root {
+  --clr-dark:   #33220f;
+  --clr-accent: #d4a76a;
+  --clr-light:  rgba(0,0,0,0.4);
+  --transition: 0.8s cubic-bezier(0.22,1,0.36,1);
+  --radius:     12px;
+  --gap:        1.5rem;
+  --shadow:     0 12px 24px rgba(0,0,0,0.3);
+}
+
+.rs-page {
+  margin: 0;
+  padding: 0;
+  font-family: 'Unbounded', sans-serif;
+}
+
+.rs-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.rs-section.enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rs-section.reverse .content {
+  margin-left: auto;
+  text-align: right;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--clr-light);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  max-width: 500px;
+  background: rgba(255,255,255,0.9);
+  color: var(--clr-dark);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(5px);
+}
+
+.content h2 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  border-bottom: 4px solid var(--clr-accent);
+  display: inline-block;
+}
+
+.content .subtitle {
+  margin: 0 0 1.5rem;
+  font-size: 1.125rem;
+  color: #555;
+}
+
+.content ul {
+  list-style: none;
+  margin: 0 0 var(--gap);
+  padding: 0;
+}
+
+.content li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.content li .check {
+  width: 20px;
+  height: 20px;
+  color: var(--clr-accent);
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* New Book Now button */
+
+.btn-book {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--clr-accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-book:hover {
+  background: #b5935d;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .rs-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  .rs-section.reverse .content {
+    margin-left: 0;
+  }
+  .content {
+    max-width: 100%;
+  }
+}

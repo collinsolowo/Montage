@@ -1,0 +1,107 @@
+/* src/assets/styles/navbar.css */
+
+.navbar {
+    width: 100vw;
+    height: 90px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+.nav-logo {
+    width: auto;
+    height: auto;
+}
+
+.nav-logo img {
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+}
+
+.nav-items {
+    gap: 25px;
+    transition: all ease-in-out 1s;
+}
+
+.nav-links {
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all ease-in-out 500ms;
+    color: rgb(211, 147, 62);
+}
+
+.nav-links:hover {
+    color: rgb(65, 45, 14);
+    transition: all ease-in-out 500ms;
+}
+
+.nav-btn {
+    background-color: rgb(65, 45, 14);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all ease-in-out 500ms;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.nav-btn:hover {
+    background-color: white;
+    color: rgb(65, 45, 14);
+    border: 1px solid rgb(65, 45, 14);
+    transition: all ease-in-out 500ms;
+}
+
+.btn-tools {
+    gap: 30px;
+}
+
+/* Always hide the hamburger by default */
+.hamburger {
+    display: none !important;
+}
+
+/* MOBILE STYLES */
+@media screen and (max-width: 850px) {
+
+    .navbar {
+        justify-content: space-between !important;
+        border-bottom: 0.2px dotted rgb(65, 45, 14);
+    }
+
+    .nav-items {
+        width: 100vw;
+        background-color: white;
+        height: auto;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
+        position: absolute;
+        left: -100%;
+        top: 100px;
+        transition: all ease-in-out 500ms;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 0.2px dotted rgb(65, 45, 14);
+    }
+
+    .btn-tools {
+        margin-right: 20px;
+    }
+
+    /* Show on mobile only */
+    .hamburger {
+        display: block !important;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .show-nav {
+        left: 0;
+        transition: all ease-in-out 500ms;
+    }
+}
