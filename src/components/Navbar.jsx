@@ -24,7 +24,7 @@ function Navbar() {
                 {/* Nav Btn */}
                 <div className="btn-tools d-flex flex-row ">
                     <i className="fa-solid fa-bars hamburger mt-2" onClick={showNav}></i>
-                    <div className="nav-btn">Book a Room</div>
+                    <Link to='/booking'><div className="nav-btn">Book a Room</div></Link>
                 </div>
             </div>
         </div>
