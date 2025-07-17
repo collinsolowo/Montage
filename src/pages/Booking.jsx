@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../assets/styles/BookingPage.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -19,6 +19,9 @@ export default function BookingPage() {
     guests: 1,
     notes: ''
   });
+
+  // Ref to the form area for smooth scrolling
+  const formRef = useRef(null);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -45,14 +48,16 @@ Guest Details:
   const sendEmail = () => {
     const subject = encodeURIComponent(`Booking Request: ${selected.name}`);
     const body = encodeURIComponent(composeMessage());
-    window.location.href = `mailto:montageholidayshomesllc@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:reservations@yourhotel.com?subject=${subject}&body=${body}`;
   };
 
   const sendWhatsApp = () => {
     const msg = encodeURIComponent(composeMessage());
-    // Replace country code and number below
-    window.open(`https://wa.me/2348139386017?text=${msg}`, '_blank');
+    window.open(`https://wa.me/2348012345678?text=${msg}`, '_blank');
   };
+
+  // Check all required fields
+  const isValid = form.name && form.email && form.checkIn && form.checkOut && form.guests > 0;
 
   return (
     <>
@@ -68,14 +73,14 @@ Guest Details:
             <p>{selected.details}</p>
             <button
               className="btn-choose"
-              onClick={() => window.scrollTo({ top: 600, behavior: 'smooth' })}
+              onClick={() => formRef.current.scrollIntoView({ behavior: 'smooth' })}
             >
               Book Now <i className="fas fa-chevron-down" />
             </button>
           </div>
         </section>
 
-        <section className="booking-body">
+        <section className="booking-body" ref={formRef}>
           <aside className="sidebar">
             <h2>Your Selection</h2>
             <ul>
@@ -103,7 +108,7 @@ Guest Details:
               <p>{selected.details}</p>
             </div>
 
-            <form className="booking-form">
+            <form className="booking-form" onSubmit={e => e.preventDefault()}>
               <label>
                 Full Name
                 <input
@@ -169,10 +174,18 @@ Guest Details:
             </form>
 
             <div className="action-buttons">
-              <button className="btn-send" onClick={sendEmail}>
+              <button
+                className="btn-send"
+                onClick={sendEmail}
+                disabled={!isValid}
+              >
                 <i className="fas fa-envelope"></i> Send Request (Email)
               </button>
-              <button className="btn-send whatsapp" onClick={sendWhatsApp}>
+              <button
+                className="btn-send whatsapp"
+                onClick={sendWhatsApp}
+                disabled={!isValid}
+              >
                 <i className="fab fa-whatsapp"></i> Send via WhatsApp
               </button>
             </div>

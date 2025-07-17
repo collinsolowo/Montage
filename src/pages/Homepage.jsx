@@ -178,10 +178,10 @@ function Homepage() {
                 <div class="overlay"></div>
                 <div class="overlay-content">
                     <h1>Indulge in Timeless<br /> Elegance</h1>
-                    <p>City Skyline Serenity ✨<br/>Wake up to the Burj Khalifa from your private balcony. Montage Holiday Homes in Downtown Dubai blend style and comfort for an unforgettable stay.Where’s your next adventure?</p>
+                    <p>City Skyline Serenity ✨<br />Wake up to the Burj Khalifa from your private balcony. Montage Holiday Homes in Downtown Dubai blend style and comfort for an unforgettable stay.Where’s your next adventure?</p>
                     <div className="d-flex btn-box">
-                        <div class="book-btn"><Link to='/booking'>Book Now</Link></div>
-                        <div class="rooms-btn"><Link to='/rooms'>Explore Rooms</Link></div>
+                        <Link to='/booking'><div class="book-btn">Book Now</div></Link>
+                        <Link to='/rooms'><div class="rooms-btn">Explore Rooms</div></Link>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@
 
 /* Hero */
 .hero {
-    margin-top: 80px;
+  margin-top: 80px;
   position: relative;
   height: 60vh;
   background-size: cover;
@@ -35,15 +35,15 @@
   border-radius: 8px;
 }
 .hero-content h1 {
-  font-size: 2.75rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
   margin-bottom: 0.5rem;
 }
 .hero-content p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 3vw, 1.1rem);
   margin-bottom: 1rem;
 }
 .btn-choose {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   padding: 0.6rem 1.2rem;
   background: var(--clr-primary);
   border: none;
@@ -51,6 +51,7 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
 /* Body */
 .booking-body {
   display: flex;
@@ -95,6 +96,7 @@
   border-radius: 4px;
   margin-right: 0.8rem;
 }
+
 /* Form Area */
 .form-area {
   flex: 1;
@@ -113,7 +115,8 @@
   color: var(--clr-primary);
   font-weight: bold;
 }
-/* Form */
+
+/* Form Inputs */
 .booking-form label {
   display: block;
   margin-bottom: 1rem;
@@ -130,12 +133,16 @@
   display: flex;
   gap: 1rem;
 }
+
 /* Actions */
 .action-buttons {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: 1rem;
 }
+
+/* Enabled vs Disabled Buttons */
 .btn-send {
   display: flex;
   align-items: center;
@@ -146,13 +153,19 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: opacity 0.2s;
 }
 .btn-send.whatsapp {
   background: #25d366;
 }
-.btn-send:hover {
+.btn-send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-send:not(:disabled):hover {
   opacity: 0.9;
 }
+
 /* Responsive */
 @media (max-width: 992px) {
   .booking-body {
