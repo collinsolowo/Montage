@@ -1,11 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/RoomsServicesPage.css';
-import roomImg from '../../public/assets/images/room.jpg';
-import kitchenImg from '../../public/assets/images/kitchen.jpg';
-import poolImg from '../../public/assets/images/pool.jpg';
-import facilityImg from '../../public/assets/images/facility.jpg';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const sections = [
@@ -13,37 +9,36 @@ const sections = [
     id: 'rooms',
     title: 'Luxurious Rooms',
     subtitle: 'Sanctuaries of comfort & style',
-    img: roomImg,
+    img: '/assets/images/room.jpg',
     items: [
-      { name: 'Deluxe King Suite', price: '$250/night', availability: '5 rooms left', details: 'King bed, city view, minibar & free Wi‑Fi.', image: roomImg },
-      // …additional fields if you like
+      { name: 'Deluxe King Suite', price: '$250/night', availability: '5 rooms left', details: 'King bed, city view, minibar & free Wi‑Fi.', image: '/assets/images/room.jpg' },
     ],
   },
   {
     id: 'kitchen',
     title: 'Gourmet Kitchen',
     subtitle: 'Culinary delights around the clock',
-    img: kitchenImg,
+    img: '/assets/images/kitchen.jpg',
     items: [
-      { name: '24/7 Chef’s Table', price: 'À la carte', availability: 'Open', details: 'Customized tasting menu by our head chef.', image: kitchenImg },
+      { name: '24/7 Chef’s Table', price: 'À la carte', availability: 'Open', details: 'Customized tasting menu by our head chef.', image: '/assets/images/kitchen.jpg' },
     ],
   },
   {
     id: 'pools',
     title: 'Infinity Pools',
     subtitle: 'Swim with a view of the horizon',
-    img: poolImg,
+    img: '/assets/images/pool.jpg',
     items: [
-      { name: 'Rooftop Infinity Deck', price: 'Free access', availability: 'Open daily', details: 'Sun loungers & cocktail service.', image: poolImg },
+      { name: 'Rooftop Infinity Deck', price: 'Free access', availability: 'Open daily', details: 'Sun loungers & cocktail service.', image: '/assets/images/pool.jpg' },
     ],
   },
   {
     id: 'facilities',
     title: 'World‑class Facilities',
     subtitle: 'Everything you need, and more',
-    img: facilityImg,
+    img: '/assets/images/facility.jpg',
     items: [
-      { name: 'State‑of‑the‑Art Gym', price: 'Free access', availability: '24/7', details: 'Cardio, weights & personal trainers.', image: facilityImg },
+      { name: 'State‑of‑the‑Art Gym', price: 'Free access', availability: '24/7', details: 'Cardio, weights & personal trainers.', image: '/assets/images/facility.jpg' },
     ],
   },
 ];
@@ -96,7 +91,6 @@ export default function RoomsServicesPage() {
                   </li>
                 ))}
               </ul>
-              {/* Book Now button links to /booking, passing the first item */}
               <Link
                 to="/booking"
                 state={{ item: sec.items[0] }}
