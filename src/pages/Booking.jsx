@@ -48,12 +48,12 @@ Guest Details:
   const sendEmail = () => {
     const subject = encodeURIComponent(`Booking Request: ${selected.name}`);
     const body = encodeURIComponent(composeMessage());
-    window.location.href = `mailto:reservations@yourhotel.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:montageholidayshomesllc@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const sendWhatsApp = () => {
     const msg = encodeURIComponent(composeMessage());
-    window.open(`https://wa.me/2348012345678?text=${msg}`, '_blank');
+    window.open(`https://wa.me/+2348139386017?text=${msg}`, '_blank');
   };
 
   // Check all required fields
