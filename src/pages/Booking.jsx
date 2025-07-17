@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../assets/styles/BookingPage.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
 import sections from '../data/sections';
 
