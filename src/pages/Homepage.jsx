@@ -144,22 +144,12 @@ function Homepage() {
         {
             title: 'Studio',
             description: 'Compact studio layout with kitchenette.',
-            image: RoomPic7,
+            image: RoomPic2,
         },
         {
             title: 'Twin Room',
             description: 'Two single beds, ideal for friends or colleagues.',
-            image: RoomPic8,
-        },
-        {
-            title: RoomPic9,
-            description: 'Perfect for solo travelers on the go.',
-            image: '/images/rooms/room9.jpg',
-        },
-        {
-            title: RoomPic10,
-            description: 'Top‑floor oasis with panoramic city/sea views.',
-            image: '/images/rooms/room10.jpg',
+            image: RoomPic5,
         },
     ];
 
@@ -187,7 +177,7 @@ function Homepage() {
                 <div class="overlay"></div>
                 <div class="overlay-content">
                     <h1>Indulge in Timeless<br /> Elegance</h1>
-                    <p>City Skyline Serenity ✨<br/>Wake up to the Burj Khalifa from your <br/>private balcony. Montage Holiday Homes <br/>in Downtown Dubai blend style and <br/>comfort for an unforgettable stay.<br/> Where’s your next adventure?</p>
+                    <p>City Skyline Serenity ✨<br/>Wake up to the Burj Khalifa from your private balcony. Montage Holiday Homes in Downtown Dubai blend style and comfort for an unforgettable stay.Where’s your next adventure?</p>
                     <div className="d-flex btn-box">
                         <div class="book-btn">Book Now</div>
                         <div class="rooms-btn">Explore Rooms</div>

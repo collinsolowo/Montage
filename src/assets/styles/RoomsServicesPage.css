@@ -1,17 +1,18 @@
 :root {
-  --clr-dark:   #33220f;
+  --clr-dark: #33220f;
   --clr-accent: #d4a76a;
-  --clr-light:  rgba(0,0,0,0.4);
-  --transition: 0.8s cubic-bezier(0.22,1,0.36,1);
-  --radius:     12px;
-  --gap:        1.5rem;
-  --shadow:     0 12px 24px rgba(0,0,0,0.3);
+  --clr-light: rgba(0, 0, 0, 0.4);
+  --transition: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  --radius: 12px;
+  --gap: 1.5rem;
+  --shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .rs-page {
   margin: 0;
   padding: 0;
   font-family: 'Unbounded', sans-serif;
+  margin-top: 80px;
 }
 
 .rs-section {
@@ -50,7 +51,7 @@
 .content {
   position: relative;
   max-width: 500px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--clr-dark);
   border-radius: var(--radius);
   padding: 2rem;
@@ -117,9 +118,11 @@
     text-align: center;
     padding: 3rem 1rem;
   }
+
   .rs-section.reverse .content {
     margin-left: 0;
   }
+
   .content {
     max-width: 100%;
   }

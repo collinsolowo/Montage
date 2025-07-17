@@ -21,7 +21,7 @@ body {
   text-align: center;
   padding: 5rem 2rem 3rem;
   background: var(--contact-clr-white);
-  margin-top: 40px;
+      margin-top: 80px;
 }
 .contact-hero-deco {
   position: absolute;

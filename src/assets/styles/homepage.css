@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+        margin-top: 80px;
 }
 
 .overlay {
@@ -40,6 +41,7 @@
     color: white;
     font-size: 20px;
     margin-top: 20px;
+    width: 40vw;
 }
 
 .book-btn {
@@ -797,8 +799,21 @@
         font-size: 1.5rem;
         padding: 0.6rem;
     }
-}
 
+    .overlay-content p{
+        width: 85vw;
+    }
+}
+@media (max-width: 600px) {
+    .slide-window{
+        width: 99vw !important;
+        max-width: 99vw;
+    }
+
+        .overlay-content p{
+        width: 90vw;
+    }
+}
 @media (max-width: 480px) {
     .room-card {
         border-radius: 12px;
@@ -810,3 +825,4 @@
         text-align: center;
     }
 }
+
