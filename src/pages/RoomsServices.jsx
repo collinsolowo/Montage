@@ -69,7 +69,7 @@ export default function RoomsServicesPage() {
   return (
     <>
       <Navbar />
-      <main className="rs-page">
+      <main className="rs-page mt-4">
         {sections.map((sec, idx) => (
           <section
             key={sec.id}

@@ -13,6 +13,7 @@ import RoomPic7 from '../../public/assets/images/rooms/room7.jpg'
 import RoomPic8 from '../../public/assets/images/rooms/room8.jpg'
 import RoomPic9 from '../../public/assets/images/rooms/room9.jpg'
 import RoomPic10 from '../../public/assets/images/rooms/room10.jpg'
+import { Link } from 'react-router-dom';
 
 function Homepage() {
     const testimonials = [
@@ -179,8 +180,8 @@ function Homepage() {
                     <h1>Indulge in Timeless<br /> Elegance</h1>
                     <p>City Skyline Serenity ✨<br/>Wake up to the Burj Khalifa from your private balcony. Montage Holiday Homes in Downtown Dubai blend style and comfort for an unforgettable stay.Where’s your next adventure?</p>
                     <div className="d-flex btn-box">
-                        <div class="book-btn">Book Now</div>
-                        <div class="rooms-btn">Explore Rooms</div>
+                        <div class="book-btn"><Link to='/booking'>Book Now</Link></div>
+                        <div class="rooms-btn"><Link to='/rooms'>Explore Rooms</Link></div>
                     </div>
                 </div>
             </div>
