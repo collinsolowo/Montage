@@ -10,8 +10,8 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { label: 'Facebook', href: 'https://facebook.com/yourpage', iconClass: 'fab fa-facebook-f' },
-  { label: 'Instagram', href: 'https://instagram.com/yourhandle', iconClass: 'fab fa-instagram' },
+  { label: 'Facebook', href: 'https://web.facebook.com/profile.php?id=61578370253699', iconClass: 'fab fa-facebook-f' },
+  { label: 'Instagram', href: 'https://www.instagram.com/montageholidayhomes/', iconClass: 'fab fa-instagram' },
   { label: 'WhatsApp', href: 'https://wa.me/+2348139386017', iconClass: 'fab fa-whatsapp' },
   { label: 'Phone', href: 'tel:+2348139386017', iconClass: 'fas fa-phone-alt' },
 ];
@@ -44,7 +44,7 @@ const Footer = () => (
         <h4>Contact Us</h4>
         <p><i className="fas fa-map-marker-alt"></i> 123 Seaside Avenue, Beach Town</p>
         <p><i className="fas fa-phone-alt"></i> +1 (234) 567‑890</p>
-        <p><i className="fas fa-envelope"></i> info@montagehomes.com</p>
+        <p><i className="fas fa-envelope"></i>montageholidayshomesllc@gmail.com</p>
       </div>
 
       {/* 4. Newsletter & Socials */}

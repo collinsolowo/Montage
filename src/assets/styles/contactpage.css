@@ -233,3 +233,210 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* …existing styles above… */
+
+/* 4. Our Locations (Upgraded) */
+.contact-locations {
+  padding: 4rem 2rem;
+  background: #fff9f4;
+}
+.contact-locations-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--contact-clr-dark);
+  font-size: 2rem;
+}
+.contact-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.contact-loc-card {
+  background: var(--contact-clr-white);
+  border-radius: var(--contact-radius);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--contact-transition), box-shadow var(--contact-transition);
+}
+.contact-loc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+}
+.contact-loc-card h3 {
+  margin: 1rem;
+  color: var(--contact-clr-accent);
+  font-size: 1.25rem;
+}
+.contact-map-embed {
+  width: 100%;
+  height: 220px;
+  border: none;
+  flex: 1;
+}
+.contact-loc-btn {
+  display: block;
+  margin: 1rem auto 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--contact-clr-accent);
+  color: var(--contact-clr-white);
+  text-decoration: none;
+  border-radius: var(--contact-radius);
+  font-weight: bold;
+  transition: background var(--contact-transition), transform var(--contact-transition);
+  width: fit-content;
+}
+.contact-loc-btn:hover {
+  background: #b58f52;
+  transform: translateY(-2px);
+}
+
+/* 5. Support Hours & FAQ (Revised) */
+.contact-hours {
+  background: var(--contact-clr-white);
+  padding: 2rem;
+  border-radius: var(--contact-radius);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.contact-hours h2 {
+  margin-bottom: 1rem;
+  color: var(--contact-clr-dark);
+}
+.contact-hours p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--contact-clr-text);
+}
+
+/* Elegant Support & FAQ Cards */
+.contact-faq-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 3rem auto 4rem;
+}
+
+/* Shared Card Styles */
+.contact-hours,
+.contact-faq {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Hover lift effect */
+.contact-hours:hover,
+.contact-faq:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Headers */
+.contact-hours h2,
+.contact-faq h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.75rem;
+  color: #4b2e1d;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+
+
+/* Support Text */
+.contact-hours p {
+  font-size: 1.125rem;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* FAQ Items */
+.contact-faq-item {
+  border-top: 1px solid #f0e0cc;
+  padding: 1rem 0;
+}
+.contact-faq-item:first-child {
+  border-top: none;
+}
+.contact-faq-q {
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4b2e1d;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.contact-faq-q span {
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+.contact-faq-item.open .contact-faq-q span {
+  transform: rotate(45deg);
+  color: #d4a76a;
+}
+
+/* Answer Panel */
+.contact-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+.contact-faq-item.open .contact-faq-a {
+  max-height: 500px; /* big enough to reveal content */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .contact-faq-section {
+    grid-template-columns: 1fr;
+  }
+  .contact-hours,
+  .contact-faq {
+    padding: 2rem 1.5rem;
+  }
+  .contact-hours h2,
+  .contact-faq h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Shared header underline for Support & FAQ */
+.contact-hours h2,
+.contact-faq h2 {
+  position: relative;          /* establish positioning context */
+  font-family: 'Georgia', serif;
+  font-size: 1.75rem;
+  color: #4b2e1d;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.25rem;     /* space for the underline */
+}
+
+
+/* Disable state styling */
+.contact-btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

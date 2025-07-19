@@ -15,6 +15,41 @@ import RoomPic9 from '../../public/assets/images/rooms/room9.jpg'
 import RoomPic10 from '../../public/assets/images/rooms/room10.jpg'
 import { Link } from 'react-router-dom';
 
+const SLIDES = [
+    {
+        title: 'About Us',
+        text: `Montage Holiday Homes Rental LLC is a premier short-term Property Rental Management Company based in the UAE. We specialize in curating exceptional holiday home experiences for travelers; offering stylish, fully furnished apartments and villas in prime locations across Dubai and beyond. Our services cater to tourists, business travelers, and staycationers looking for flexible, luxurious, and convenient accommodations with a “home away from home” feeling.`,
+        image: '/assets/images/profilepic.jpg',  // placeholder; swap to real profile pic as needed
+    },
+    {
+        title: 'Mission Statement',
+        text: `To redefine short-term rentals by providing guests with premium, personalized, and seamless holiday home experiences while delivering outstanding property management solutions that empower owners and maximize profitability.`,
+        image: '/assets/images/overlay.jpg',
+    },
+    {
+        title: 'Vision Statement',
+        text: `To become the most trusted and innovative holiday home brand in the UAE, known for exceptional services, curated stays, and a commitment to excellence for both guests and property partners.`,
+        image: '/assets/images/facility.jpg',
+    },
+];
+
+const HERO_SLIDES = [
+    {
+        img: '/assets/images/BG1.jpeg',
+        heading: <>Indulge in Timeless<br />Elegance</>,
+        subtext: `City Skyline Serenity ✨
+Wake up to the Burj Khalifa from your private balcony. Montage Holiday Homes in Downtown Dubai blend style and comfort for an unforgettable stay. Where’s your next adventure?`,
+    },
+    {
+        img: '/assets/images/BG2.jpeg',   // your second image in public/assets/images
+        heading: <>Welcome to LuxuryEscape</>,
+        subtext: `to a world of elegance with Montage Holiday Homes. Our stunning villas in Dubai’s iconic Palm Jumeirah offer private pools and breathtaking views. Book your dream getaway today!
+
+#DubaiLuxury #MontageHolidayHomes #LuxuryVillas #PalmJumeirah #TravelDubai #LuxuryTravel #VacationGoals #HolidayHomes`,
+    },
+];
+
+
 function Homepage() {
     const testimonials = [
         {
@@ -94,6 +129,17 @@ function Homepage() {
     const imgRef = useRef();
     const [visible, setVisible] = useState({ text: false, img: false });
 
+    const [slide, setSlide] = useState(0);
+    const timeoutRef = useRef(null);
+
+    // Auto-rotate every 7s
+    useEffect(() => {
+        timeoutRef.current = setTimeout(() => {
+            setSlide((s) => (s + 1) % HERO_SLIDES.length);
+        }, 5000);
+        return () => clearTimeout(timeoutRef.current);
+    }, [slide]);
+
     // Intersection Observer to trigger animations
     useEffect(() => {
         const opts = { threshold: 0.3 };
@@ -110,6 +156,17 @@ function Homepage() {
         if (imgRef.current) observer.observe(imgRef.current);
         return () => observer.disconnect();
     }, []);
+
+    const [idx, setIdx] = useState(0);
+    const timer = useRef();
+
+    // Auto-advance every 5 seconds
+    useEffect(() => {
+        timer.current = setTimeout(() => {
+            setIdx(i => (i + 1) % SLIDES.length);
+        }, 5000);
+        return () => clearTimeout(timer.current);
+    }, [idx]);
 
     const rooms = [
         {
@@ -155,17 +212,17 @@ function Homepage() {
     ];
 
     const [indexs, setIndexs] = useState(0);
-    const timeoutRef = useRef();
+    const htimeoutRef = useRef();
     const delay = 5000;
 
     // reset and start auto‑slide
     useEffect(() => {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = setTimeout(
+        clearTimeout(htimeoutRef.current);
+        htimeoutRef.current = setTimeout(
             () => setIndexs((prev) => (prev + 1) % rooms.length),
             delay
         );
-        return () => clearTimeout(timeoutRef.current);
+        return () => clearTimeout(htimeoutRef.current);
     }, [indexs]);
 
     const prev = () => setIndexs((i) => (i - 1 + rooms.length) % rooms.length);
@@ -174,15 +231,37 @@ function Homepage() {
         <div>
             <Navbar />
             {/* Overlay Hero Section */}
-            <div class="hero-section">
-                <div class="overlay"></div>
-                <div class="overlay-content">
-                    <h1>Indulge in Timeless<br /> Elegance</h1>
-                    <p>City Skyline Serenity ✨<br />Wake up to the Burj Khalifa from your private balcony. Montage Holiday Homes in Downtown Dubai blend style and comfort for an unforgettable stay.Where’s your next adventure?</p>
-                    <div className="d-flex btn-box">
-                        <Link to='/booking'><div class="book-btn">Book Now</div></Link>
-                        <Link to='/rooms'><div class="rooms-btn">Explore Rooms</div></Link>
+            <div className="hero-carousel">
+                {HERO_SLIDES.map((s, i) => (
+                    <div
+                        key={i}
+                        className={`hero-slide ${i === slide ? 'active' : ''}`}
+                        style={{ backgroundImage: `url(${s.img})` }}
+                    >
+                        <div className="overlay" />
+                        <div className="overlay-content">
+                            <h1>{s.heading}</h1>
+                            <p>{s.subtext}</p>
+                            <div className="btn-box">
+                                <Link to="/booking" className="book-btn">Book Now</Link>
+                                <Link to="/rooms" className="rooms-btn">Explore Rooms</Link>
+                            </div>
+                        </div>
                     </div>
+                ))}
+
+                <div className="hero-dots">
+                    {HERO_SLIDES.map((_, idx) => (
+                        <button
+                            key={idx}
+                            className={`dot ${idx === slide ? 'active' : ''}`}
+                            onClick={() => {
+                                clearTimeout(timeoutRef.current);
+                                setSlide(idx);
+                            }}
+                            aria-label={`Go to slide ${idx + 1}`}
+                        />
+                    ))}
                 </div>
             </div>
             {/* Featured Services Section */}
@@ -198,27 +277,36 @@ function Homepage() {
                 </div>
             </section>
             {/* About Us Section */}
-            <section className="about-us">
-                <div className="about-us__bg-deco" aria-hidden="true" />
-                <div
-                    ref={textRef}
-                    className={`about-us__text ${visible.text ? 'is-visible' : ''}`}
-                >
-                    <h2>About <span className="highlight">Montage Holiday Homes</span></h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
-                        Voluptate, porro asperiores, provident deserunt ut <strong>impedit sunt</strong> error
-                        pariatur, excepturi tempora aspernatur velit perferendis.
-                    </p>
-                </div>
+            <div className="about-carousel">
+                {SLIDES.map((s, i) => (
+                    <div
+                        key={i}
+                        className={`about-slide ${i === idx ? 'active' : ''}`}
+                    >
+                        <div className="about-text">
+                            <h2>{s.title}</h2>
+                            <p>{s.text}</p>
+                        </div>
+                        <div className="about-image">
+                            <img src={s.image} alt={s.title} />
+                        </div>
+                    </div>
+                ))}
 
-                <div
-                    ref={imgRef}
-                    className={`about-us__image ${visible.img ? 'is-visible' : ''}`}
-                >
-                    <img src={ProfilePic} alt="Our founder smiling" loading="lazy" />
+                <div className="about-dots">
+                    {SLIDES.map((_, i) => (
+                        <button
+                            key={i}
+                            className={`dot ${i === idx ? 'active' : ''}`}
+                            onClick={() => {
+                                clearTimeout(timer.current);
+                                setIdx(i);
+                            }}
+                            aria-label={`Go to ${SLIDES[i].title}`}
+                        />
+                    ))}
                 </div>
-            </section>
+            </div>
             {/* Rooms Sections */}
             {/* Rooms Section: REPLACE ENTIRE BLOCK BELOW */}
             <section className="rooms-section">

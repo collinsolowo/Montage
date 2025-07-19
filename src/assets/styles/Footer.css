@@ -53,7 +53,7 @@
 }
 
 .footer-links li + li {
-  margin-top: 0.75rem;
+  margin-top: 0.65rem;
 }
 
 .footer-links a {
@@ -67,7 +67,8 @@
 }
 
 .footer-col p {
-  margin: 0.5rem 0;
+  margin: 0.3rem 0;
+  font-size: 13px;
 }
 
 .footer-col p i {
