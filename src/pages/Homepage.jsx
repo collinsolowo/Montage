@@ -42,7 +42,7 @@ Wake up to the Burj Khalifa from your private balcony. Montage Holiday Homes in 
     },
     {
         img: '/assets/images/BG2.jpeg',   // your second image in public/assets/images
-        heading: <>Welcome to LuxuryEscape</>,
+        heading: <>Welcome to Luxury Escape</>,
         subtext: `to a world of elegance with Montage Holiday Homes. Our stunning villas in Dubai’s iconic Palm Jumeirah offer private pools and breathtaking views. Book your dream getaway today!
 
 #DubaiLuxury #MontageHolidayHomes #LuxuryVillas #PalmJumeirah #TravelDubai #LuxuryTravel #VacationGoals #HolidayHomes`,
@@ -235,7 +235,7 @@ function Homepage() {
                             <p>{s.subtext}</p>
                             <div className="btn-box">
                                 <Link to="/booking" className="book-btn">Book Now</Link>
-                                <Link to="/rooms" className="rooms-btn">Explore Rooms</Link>
+                                <Link to="/rooms" className="rooms-btn">Explore Studios</Link>
                             </div>
                         </div>
                     </div>
@@ -350,9 +350,9 @@ function Homepage() {
                     ))}
                 </div>
 
-                <a href="/rooms" className="see-more-btn">
+                <Link to="/rooms" className="see-more-btn">
                     See More Rooms &amp; Services
-                </a>
+                </Link>
             </section>
             {/* END Rooms Section */}
 

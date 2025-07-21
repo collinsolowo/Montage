@@ -1248,7 +1248,8 @@
   /* 1. Container inherits parent width/padding */
   .about-carousel {
     position: static !important;
-    width: auto !important;
+    width: 90vw !important;
+    align-self: center !important;
     max-width: none !important;
     padding: 1rem 0 !important;
     min-height: 0 !important;
@@ -1281,7 +1282,7 @@
   /* 4. Adjust typography & image size */
   .about-text h2 {
     font-size: 1.5rem !important;
-    margin-bottom: 0.75rem !important;
+    margin-bottom: 0.15rem !important;
   }
   .about-text p {
     font-size: 1rem !important;
