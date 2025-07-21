@@ -1,141 +1,116 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import '../assets/styles/RoomsServicesPage.css';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
-const sections = [
+const ROOMS = [
   {
-    id: 'rooms',
-    title: 'Luxurious Rooms',
+    id: 1,
+    title: 'Deluxe King Suite',
     subtitle: 'Sanctuaries of Comfort & Style',
-    img: '/assets/images/room.jpg',
-    desc: `Each of our guest rooms and suites has been thoughtfully appointed 
-      with hand‑picked furnishings, premium linens, and modern amenities 
-      to ensure your stay is as restful as it is unforgettable.`,
+    description:
+      'Each of our guest rooms and suites has been thoughtfully appointed with hand‑picked furnishings, premium linens, and modern amenities to ensure your stay is as restful as it is unforgettable.',
+    image: '/assets/images/rooms/room1.jpg',
     features: [
       'King‑ or queen‑size plush bedding',
       'Floor‑to‑ceiling windows with city or sea vistas',
       'En‑suite marble bath with rainfall shower',
       'Complimentary high‑speed Wi‑Fi & smart‑TV',
-      '24/7 in‑room dining service'
+      '24/7 in‑room dining service',
     ],
-    itemToBook: { name: 'Deluxe King Suite', price: '$250/night', image: '/assets/images/room.jpg' }
   },
   {
-    id: 'kitchen',
-    title: 'Gourmet Kitchen',
-    subtitle: 'Epicurean Delights Await',
-    img: '/assets/images/kitchen.jpg',
-    desc: `Our signature kitchen experiences marry global flavors with 
-      locally sourced ingredients—whether you crave a chef’s tasting menu, 
-      an alfresco BBQ, or a private dining affair for up to ten guests.`,
+    id: 2,
+    title: 'Executive Suite',
+    subtitle: 'Workspace, Lounge & Views',
+    description:
+      'A versatile suite featuring a dedicated workspace, separate lounge area, and floor‑to‑ceiling windows to keep you productive and inspired.',
+    image: '/assets/images/rooms/room2.jpg',
     features: [
-      'Chef’s tasting menu curated daily',
-      'Private dining rooms with personalized service',
-      'Open‑air BBQ pavilion under the stars',
-      'Customizable group menus & wine pairings',
-      '24/7 room service from our kitchen'
+      'Built‑in desk with ergonomic chair',
+      'Separate seating area with sofa',
+      'Full minibar & coffee station',
+      'Smart lighting & thermostat controls',
+      'Complimentary access to business lounge',
     ],
-    itemToBook: { name: '24/7 Chef’s Table', price: 'À la carte', image: '/assets/images/kitchen.jpg' }
   },
   {
-    id: 'pools',
-    title: 'Infinity Pools',
-    subtitle: 'Swim Above the Horizon',
-    img: '/assets/images/pool.jpg',
-    desc: `Dive into panoramic vistas from our infinity decks, 
-      lounge in the family lagoon, or unwind in our heated spa and 
-      sauna—every pool is a private oasis elevated by bespoke service.`,
+    id: 3,
+    title: 'Family Room',
+    subtitle: 'Spacious & Connected',
+    description:
+      'Designed for families or groups, enjoy two queen beds, a lounge nook, and extra storage, all within a light‑filled space.',
+    image: '/assets/images/rooms/room3.jpg',
     features: [
-      'Rooftop infinity deck with skyline view',
-      'Family‑friendly lagoon‑style pool',
-      'Heated spa jets & steam room access',
-      'Swim‑up tiki bar with signature cocktails',
-      'Poolside cabanas with dedicated attendants'
+      'Two queen beds with premium linens',
+      'Cozy seating nook with USB charging',
+      'In‑room kitchenette for snacks',
+      'Smart‑TV with streaming apps',
+      'Child‑friendly amenities on request',
     ],
-    itemToBook: { name: 'Rooftop Infinity Deck', price: 'Free access', image: '/assets/images/pool.jpg' }
   },
   {
-    id: 'facilities',
-    title: 'World‑class Facilities',
-    subtitle: 'All You Desire, On‑site',
-    img: '/assets/images/facility.jpg',
-    desc: `From a cutting‑edge fitness center and serene wellness spa 
-      to a business lounge equipped for every meeting, our facilities 
-      cater to every aspect of your lifestyle—leisure, wellness, and work.`,
+    id: 4,
+    title: 'Panorama Studio',
+    subtitle: 'Skyline Vistas',
+    description:
+      'A sleek studio with floor‑to‑ceiling windows offering panoramic city views, perfect for both leisure and work.',
+    image: '/assets/images/rooms/room4.jpg',
     features: [
-      '24/7 state‑of‑the‑art gym & personal trainers',
-      'Full‑service wellness spa & treatment rooms',
-      'Business & co‑working lounge with private pods',
-      'Kids’ play zone & VR arcade',
-      'Concierge, laundry & valet services'
+      'Panoramic windows with blackout shades',
+      'Compact kitchenette & bar setup',
+      'Convertible sofa‑bed option',
+      'Bluetooth speaker system',
+      'Premium bathrobes & slippers',
     ],
-    itemToBook: { name: 'State‑of‑the‑Art Gym', price: 'Free access', image: '/assets/images/facility.jpg' }
-  }
+  },
 ];
 
-export default function RoomsServicesPage() {
-  const [visible, setVisible] = useState({});
-  const observer = useRef();
+export default function RoomsServices() {
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    observer.current = new IntersectionObserver(
-      entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            setVisible(v => ({ ...v, [e.target.id]: true }));
-            observer.current.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    sections.forEach(sec => {
-      const el = document.getElementById(sec.id);
-      if (el) observer.current.observe(el);
-    });
-    return () => observer.current.disconnect();
+    // trigger entrance animation after mount
+    setLoaded(true);
   }, []);
 
   return (
     <>
-      <Navbar />
-      <main className="rs-page">
-        {sections.map((sec, idx) => (
+    <Navbar/>
+      <main className="rs-page mt-5">
+        {ROOMS.map((room, i) => (
           <section
-            key={sec.id}
-            id={sec.id}
-            className={`rs-section ${idx % 2 ? 'reverse' : ''} ${visible[sec.id] ? 'enter' : ''}`}
-            style={{ backgroundImage: `url(${sec.img})` }}
+            key={room.id}
+            className={`rs-section ${loaded ? 'enter' : ''} ${i % 2 === 1 ? 'reverse' : ''
+              }`}
           >
-            <div className="overlay" />
+            <div
+              className="image-wrapper"
+              style={{ backgroundImage: `url(${room.image})` }}
+            >
+              {/* fallback real <img> for mobile */}
+              <img src={room.image} alt={room.title} />
+            </div>
             <div className="content">
-              <h2>{sec.title}</h2>
-              <p className="subtitle">{sec.subtitle}</p>
-              <p className="desc">{sec.desc}</p>
+              <h2>{room.title}</h2>
+              <p className="subtitle">{room.subtitle}</p>
+              <p className="desc">{room.description}</p>
               <ul>
-                {sec.features.map((feat, i) => (
-                  <li key={i}>
-                    <svg className="check" viewBox="0 0 20 20">
-                      <polyline points="4 11 8 15 16 5" fill="none" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                    {feat}
+                {room.features.map((f, idx) => (
+                  <li key={idx}>
+                    <i className="fas fa-check check" />
+                    {f}
                   </li>
                 ))}
               </ul>
-              <Link
-                to="/booking"
-                state={{ item: sec.itemToBook }}
-                className="btn-book"
-              >
-                Book Now — {sec.itemToBook.name}
-              </Link>
+              <a href="/booking" className="btn-book">
+                Book Now
+              </a>
             </div>
           </section>
         ))}
       </main>
-      <Footer />
+      <Footer/>
     </>
   );
 }

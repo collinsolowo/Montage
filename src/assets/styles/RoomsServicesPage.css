@@ -1,174 +1,180 @@
 :root {
   --clr-dark: #33220f;
   --clr-accent: #d4a76a;
-  --clr-light: rgba(0, 0, 0, 0.4);
-  --transition: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   --radius: 12px;
-  --gap: 1.5rem;
-  --shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  --gap: 2rem;
+  --shadow: 0 12px 24px rgba(0,0,0,0.2);
+  --transition: transform 0.4s ease;
 }
 
+/* Page container */
 .rs-page {
-  margin: 0;
-  padding: 0;
+  padding-top: 80px;
   font-family: 'Unbounded', sans-serif;
-  margin-top: 80px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
+/* Desktop: two‑column grid */
 .rs-section {
-  position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "image content";
   align-items: center;
-  padding: 4rem 2rem;
+  margin-bottom: 4rem;
   min-height: 60vh;
-  background-size: cover;
-  background-position: center;
-  color: #fff;
   overflow: hidden;
+  transition: opacity 0.6s ease, transform 0.4s ease;
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 .rs-section.enter {
   opacity: 1;
   transform: translateY(0);
 }
-
-.rs-section.reverse .content {
-  margin-left: auto;
-  text-align: right;
+.rs-section:not(.enter) {
+  transform: translateY(40px);
+}
+.rs-section.reverse {
+  grid-template-areas: "content image";
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: var(--clr-light);
-  mix-blend-mode: multiply;
-  pointer-events: none;
+/* Desktop image pane (bg-image) */
+.image-wrapper {
+  grid-area: image;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--transition);
+}
+.rs-section:hover .image-wrapper {
+  transform: scale(1.02);
+}
+/* Hide the <img> by default on desktop */
+.image-wrapper img {
+  display: none;
 }
 
+/* Desktop content pane */
 .content {
-  position: relative;
-  max-width: 500px;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--clr-dark);
-  border-radius: var(--radius);
+  grid-area: content;
+  background: rgba(255,255,255,0.9);
   padding: 2rem;
+  margin: 0 var(--gap);
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(5px);
-  margin-top: 150px;
+  transition: transform var(--transition);
+}
+.rs-section:hover .content {
+  transform: translateY(-5px);
 }
 
+/* Typography */
 .content h2 {
-  margin: 0 0 0.5rem;
-  font-size: 2rem;
-  border-bottom: 4px solid var(--clr-accent);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 3px solid var(--clr-accent);
   display: inline-block;
 }
-
 .content .subtitle {
-  margin: 0 0 1.5rem;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   color: #555;
+  margin-bottom: 1rem;
 }
-
+.content .desc {
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
 .content ul {
   list-style: none;
-  margin: 0 0 var(--gap);
   padding: 0;
+  margin-bottom: 1.5rem;
 }
-
 .content li {
   display: flex;
   align-items: center;
   margin-bottom: 0.75rem;
-  font-size: 1rem;
+  color: #333;
 }
-
-.content li .check {
-  width: 20px;
-  height: 20px;
-  color: var(--clr-accent);
+.content .check {
   margin-right: 0.75rem;
-  flex-shrink: 0;
+  color: var(--clr-accent);
+  width: 18px;
+  height: 18px;
 }
 
-/* New Book Now button */
-
+/* Book button */
 .btn-book {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
   background: var(--clr-accent);
   color: #fff;
   text-decoration: none;
+  padding: 0.6rem 1.2rem;
   border-radius: var(--radius);
   font-weight: bold;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
-
 .btn-book:hover {
   background: #b5935d;
 }
 
-/* Responsive */
-
+/* ================================ */
+/* MOBILE-ONLY OVERRIDE (<768px)   */
+/* stacks image above text, shows  */
+/* real <img> so full photo is     */
+/* visible and hides bg-image then */
+/* ================================ */
 @media (max-width: 768px) {
   .rs-section {
-    flex-direction: column;
-    text-align: center;
-    padding: 3rem 1rem;
+    display: flex !important;
+    flex-direction: column !important;
+    background-image: none !important;
+    padding: 0 !important;
+    margin-bottom: 2rem !important;
+    align-items: center !important;
   }
 
-  .rs-section.reverse .content {
-    margin-left: 0;
+  .image-wrapper {
+    width: 95% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: none !important;
+    height: auto !important;
+  }
+  .image-wrapper img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border-radius: var(--radius) !important;
   }
 
   .content {
-    max-width: 100%;
+    width: 90% !important;
+    margin: 1rem auto 0 !important;
+    padding: 1.5rem !important;
+    background: rgba(255,255,255,0.95) !important;
+    box-shadow: var(--shadow) !important;
+    border-radius: var(--radius) !important;
+    transform: none !important;
   }
-}
 
-/* Description paragraph */
-.content .desc {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #555;
-  margin: 1rem 0 1.5rem;
-}
-
-/* Features list spacing */
-.content ul {
-  margin-bottom: 1.5rem;
-}
-
-/* Feature items */
-.content li {
-  margin-bottom: 0.8rem;
-  opacity: 0.9;
-}
-
-/* Enhance check icon color */
-.content li .check {
-  color: var(--clr-accent);
-}
-
-/* World‑class gradient border underline */
-.rs-section {
-  position: relative;
-  margin-bottom: 4rem;
-  padding-bottom: 2rem;
-  
-  /* set up a transparent bottom border to receive the gradient */
-  border-bottom: 6px solid rgba(194, 160, 7, 0.3);
-  
-  /* border‑image draws the gradient into that border line */
-  border-image-source: linear-gradient(
-    to right,
-    rgba(212,167,106,0) 0%,
-    #d4a76a 25%,
-    #d4a76a 75%,
-    rgba(212,167,106,0) 100%
-  );
-  border-image-slice: 1;
+  .content h2 {
+    font-size: 1.6rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .content .subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .content .desc {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .content li {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.6rem !important;
+  }
 }
