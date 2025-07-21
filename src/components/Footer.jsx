@@ -42,7 +42,7 @@ const Footer = () => (
       {/* 3. Contact Info */}
       <div className="footer-col">
         <h4>Contact Us</h4>
-        <p><i className="fas fa-map-marker-alt"></i>Montage Holiday Homes Rental LLc<br/> 9th Floor, Office 13,<br/> Citibank Building,<br/> Umm e Hurair Second,<br/> Dubai Medica City</p>
+        <p><i className="fas fa-map-marker-alt"></i>Montage Holiday Homes Rental LLC<br/> 9th Floor, Office 13,<br/> Citibank Building,<br/> Umm e Hurair Second,<br/> Dubai Medica City</p>
         <p><i className="fas fa-phone-alt"></i> +971589355788</p>
         <p><i className="fas fa-envelope"></i>montageholidayshomesllc@gmail.com</p>
       </div>
