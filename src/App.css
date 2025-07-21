@@ -1,10 +1,12 @@
-*{
-  font-family: 'GFS Didot', sans-serif;
-  text-decoration: none;
-  padding: 0;
-  margin: 0;
-}
+       @import './assets/styles/textStyles.css';
 
-body{
-  overflow-x: hidden;
-}
+       * {
+         font-family: 'GFS Didot', sans-serif;
+         text-decoration: none !important;
+         padding: 0;
+         margin: 0;
+       }
+
+       body {
+         overflow-x: hidden;
+       }

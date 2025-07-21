@@ -1,0 +1,108 @@
+
+
+html {
+font-size: 100%;           /* 16px baseline \*/
+line-height: 1.6;
+scroll-behavior: smooth;
+}
+
+body {
+/* inherit font-family from page-specific declarations \*/
+color: inherit;
+margin: 0;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+margin-top: 0;
+margin-bottom: 0.5em;
+line-height: 1.2;
+font-weight: 600;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+margin-bottom: 1em;
+/* Let container width govern readability \*/
+max-width: 60ch;
+}
+
+a {
+text-decoration: underline;
+transition: opacity 0.2s ease;
+}
+a\:hover,
+a\:focus {
+opacity: 0.8;
+}
+
+ul, ol {
+margin: 1em 0;
+padding-left: 1.5em;
+}
+li {
+margin-bottom: 0.5em;
+}
+
+.text-center { text-align: center !important; }
+.text-right  { text-align: right !important; }
+.text-left   { text-align: left !important; }
+.text-uppercase { text-transform: uppercase; letter-spacing: 0.05em; }
+.text-muted { opacity: 0.7 !important; }
+.mb-1 { margin-bottom: 0.25rem !important; }
+.mb-2 { margin-bottom: 0.5rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+.mb-5 { margin-bottom: 3rem !important; }
+.mt-1 { margin-top: 0.25rem !important; }
+.mt-2 { margin-top: 0.5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.mt-4 { margin-top: 1.5rem !important; }
+.mt-5 { margin-top: 3rem !important; }
+
+@media (max-width: 1200px) {
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.85rem; }
+h3 { font-size: 1.6rem; }
+}
+
+@media (max-width: 768px) {
+html { font-size: 94%; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+p  { font-size: 0.95rem; }
+.overlay-content h1,
+.hero-content h1,
+.contact-hero-title,
+.rooms-title { font-size: clamp(1.75rem, 4vw, 2.5rem) !important; }
+}
+
+@media (max-width: 480px) {
+html { font-size: 90%; }
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+p  { font-size: 0.9rem; }
+}
+
+.heading-accent {
+display: inline-block;
+position: relative;
+padding-bottom: 0.25em;
+}
+.heading-accent::after {
+content: '';
+position: absolute;
+left: 0;
+bottom: 0;
+width: 50%;
+height: 3px;
+background-color: currentColor;
+}

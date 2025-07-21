@@ -128,3 +128,47 @@
     max-width: 100%;
   }
 }
+
+/* Description paragraph */
+.content .desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 1rem 0 1.5rem;
+}
+
+/* Features list spacing */
+.content ul {
+  margin-bottom: 1.5rem;
+}
+
+/* Feature items */
+.content li {
+  margin-bottom: 0.8rem;
+  opacity: 0.9;
+}
+
+/* Enhance check icon color */
+.content li .check {
+  color: var(--clr-accent);
+}
+
+/* World‑class gradient border underline */
+.rs-section {
+  position: relative;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  
+  /* set up a transparent bottom border to receive the gradient */
+  border-bottom: 6px solid rgba(194, 160, 7, 0.3);
+  
+  /* border‑image draws the gradient into that border line */
+  border-image-source: linear-gradient(
+    to right,
+    rgba(212,167,106,0) 0%,
+    #d4a76a 25%,
+    #d4a76a 75%,
+    rgba(212,167,106,0) 100%
+  );
+  border-image-slice: 1;
+}

@@ -7,10 +7,10 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 const SOCIALS = [
-  { key: 'whatsapp', label: 'WhatsApp', url: 'https://wa.me/+2348139386017', icon: 'fab fa-whatsapp' },
+  { key: 'whatsapp', label: 'WhatsApp', url: 'https://wa.me/+971589355788', icon: 'fab fa-whatsapp' },
   { key: 'facebook', label: 'Facebook', url: 'https://web.facebook.com/profile.php?id=61578370253699', icon: 'fab fa-facebook-f' },
   { key: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/montageholidayhomes/', icon: 'fab fa-instagram' },
-  { key: 'phone', label: 'Call Us', url: 'tel:+23448139386017', icon: 'fas fa-phone-alt' },
+  { key: 'phone', label: 'Call Us', url: 'tel:+971589355788', icon: 'fas fa-phone-alt' },
 ];
 
 const LOCATIONS = [

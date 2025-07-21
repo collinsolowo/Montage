@@ -40,6 +40,7 @@ body {
 .contact-hero-sub {
   font-size: 1.125rem;
   color: var(--contact-clr-text);
+  max-width: none !important;
 }
 
 /* 2. Socials */

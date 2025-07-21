@@ -4,11 +4,11 @@ import '../assets/styles/homepage.css'
 import ProfilePic from '../../public/assets/images/profilepic.jpg'
 import Footer from '../components/Footer';
 import RoomPic1 from '../../public/assets/images/rooms/room1.jpg'
-import RoomPic2 from '../../public/assets/images/rooms/room2.jpg'
-import RoomPic3 from '../../public/assets/images/rooms/room3.jpg'
+import RoomPic2 from '../../public/assets/images/BG1.jpeg'
+import RoomPic3 from '../../public/assets/images/BG2.jpeg'
 import RoomPic4 from '../../public/assets/images/rooms/room4.jpg'
-import RoomPic5 from '../../public/assets/images/rooms/room5.jpg'
-import RoomPic6 from '../../public/assets/images/rooms/room6.jpg'
+import RoomPic5 from '../../public/assets/images/BG2.jpeg'
+import RoomPic6 from '../../public/assets/images/BG1.jpeg'
 import RoomPic7 from '../../public/assets/images/rooms/room7.jpg'
 import RoomPic8 from '../../public/assets/images/rooms/room8.jpg'
 import RoomPic9 from '../../public/assets/images/rooms/room9.jpg'
@@ -119,10 +119,10 @@ function Homepage() {
 
     const current = testimonials[index];
     const channels = [
-        { key: 'whatsapp', label: 'WhatsApp', link: 'https://wa.me/1234567890', iconClass: 'fab fa-whatsapp' },
-        { key: 'facebook', label: 'Facebook', link: 'https://facebook.com/yourpage', iconClass: 'fab fa-facebook-f' },
-        { key: 'instagram', label: 'Instagram', link: 'https://instagram.com/yourhandle', iconClass: 'fab fa-instagram' },
-        { key: 'phone', label: 'Call Us', link: 'tel:+1234567890', iconClass: 'fas fa-phone-alt' },
+        { key: 'whatsapp', label: 'WhatsApp', link: 'https://wa.me/+971589355788', iconClass: 'fab fa-whatsapp' },
+        { key: 'facebook', label: 'Facebook', link: 'https://web.facebook.com/profile.php?id=61578370253699', iconClass: 'fab fa-facebook-f' },
+        { key: 'instagram', label: 'Instagram', link: 'https://www.instagram.com/montageholidayhomes/', iconClass: 'fab fa-instagram' },
+        { key: 'phone', label: 'Call Us', link: 'tel:+971589355788', iconClass: 'fas fa-phone-alt' },
     ];
 
     const textRef = useRef();
@@ -170,46 +170,37 @@ function Homepage() {
 
     const rooms = [
         {
-            title: 'Deluxe Room',
-            description: 'Spacious comfort with a king‑size bed & sea view.',
+            title: '',
+            description: 'Stylish open-plan space with plush bedding, private balcony & full kitchenette.',
             image: RoomPic1,
         },
         {
-            title: 'Executive Suite',
-            description: 'Workspace, lounge area, and premium amenities.',
+            title: '',
+            description: 'Panoramic Dubai skyline views, modern interiors, and seamless design.',
             image: RoomPic2,
         },
         {
-            title: 'Family Room',
-            description: 'Two queen beds + play area, perfect for families.',
+            title: '',
+            description: 'Steps from the beach, this studio features neutral tones & ocean light.',
             image: RoomPic3,
         },
         {
-            title: 'Standard Room',
-            description: 'Cozy & efficient, with all the essentials.',
+            title: '',
+            description: 'High-rise privacy meets cozy design. Ideal for solo stays or business trips.',
             image: RoomPic4,
         },
         {
-            title: 'Junior Suite',
-            description: 'Open‑plan living + bedroom in one elegant space.',
+            title: '',
+            description: 'Private balcony, high-speed Wi-Fi, luxury linens & smart-TV — all-in-one.',
             image: RoomPic5,
         },
         {
-            title: 'Presidential Suite',
-            description: 'Ultimate luxury: private terrace & butler service.',
+            title: '',
+            description: 'Bright corner layout with extended windows and fully equipped kitchen.',
             image: RoomPic6,
         },
-        {
-            title: 'Studio',
-            description: 'Compact studio layout with kitchenette.',
-            image: RoomPic2,
-        },
-        {
-            title: 'Twin Room',
-            description: 'Two single beds, ideal for friends or colleagues.',
-            image: RoomPic5,
-        },
     ];
+
 
     const [indexs, setIndexs] = useState(0);
     const htimeoutRef = useRef();

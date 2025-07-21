@@ -12,8 +12,8 @@ const quickLinks = [
 const socialLinks = [
   { label: 'Facebook', href: 'https://web.facebook.com/profile.php?id=61578370253699', iconClass: 'fab fa-facebook-f' },
   { label: 'Instagram', href: 'https://www.instagram.com/montageholidayhomes/', iconClass: 'fab fa-instagram' },
-  { label: 'WhatsApp', href: 'https://wa.me/+2348139386017', iconClass: 'fab fa-whatsapp' },
-  { label: 'Phone', href: 'tel:+2348139386017', iconClass: 'fas fa-phone-alt' },
+  { label: 'WhatsApp', href: 'https://wa.me/+971589355788', iconClass: 'fab fa-whatsapp' },
+  { label: 'Phone', href: 'tel:++971589355788', iconClass: 'fas fa-phone-alt' },
 ];
 
 const Footer = () => (
@@ -42,8 +42,8 @@ const Footer = () => (
       {/* 3. Contact Info */}
       <div className="footer-col">
         <h4>Contact Us</h4>
-        <p><i className="fas fa-map-marker-alt"></i> 123 Seaside Avenue, Beach Town</p>
-        <p><i className="fas fa-phone-alt"></i> +1 (234) 567‑890</p>
+        <p><i className="fas fa-map-marker-alt"></i>Montage Holiday Homes Rental LLc<br/> 9th Floor, Office 13,<br/> Citibank Building,<br/> Umm e Hurair Second,<br/> Dubai Medica City</p>
+        <p><i className="fas fa-phone-alt"></i> +971589355788</p>
         <p><i className="fas fa-envelope"></i>montageholidayshomesllc@gmail.com</p>
       </div>
 
